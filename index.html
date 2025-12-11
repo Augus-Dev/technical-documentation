@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git/GitHub Technical Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <header>Git & GitHub Topics</header>
+        <a class="nav-link" href="#Introduction_to_Git">Introduction to Git</a>
+        <a class="nav-link" href="#Basic_Commands">Basic Commands</a>
+        <a class="nav-link" href="#Working_with_Branches">Working with Branches</a>
+        <a class="nav-link" href="#GitHub_and_Remotes">GitHub and Remotes</a>
+        <a class="nav-link" href="#Pull_Requests_and_Collaboration">Pull Requests and Collaboration</a>
+        <a class="nav-link" href="#Conflict_Management_and_Rebase">Conflict Management and Rebase</a>
+        <a class="nav-link" href="#Ignoring_Files_and_Global_Config">Ignoring Files and Global Config</a>
+    </nav>
+
+    <main id="main-doc">
+
+        <!-- Secção 1: Introduction to Git -->
+        <section class="main-section" id="Introduction_to_Git">
+            <header>Introduction to Git</header>
+            <p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</p>
+            <p>Git is easy to learn and has a tiny footprint with lightning-fast performance. It outclasses SCM tools like Subversion, CVS, Perforce, and ClearCase with features such as cheap local branching, convenient staging areas, and multiple workflows.</p>
+            <p>To initialize a new local Git repository, use the command:</p>
+            <details>
+                <summary>Command</summary>
+                <code>git init</code>
+            </details>
+            <ul>
+                <li>Item 1: Advantages of Git over centralized systems.</li>
+                <li>Item 2: The distributed nature means every developer has a full copy of the project history.</li>
+                <li>Item 3: The "staging area" is a key feature.</li>
+            </ul>
+        </section>
+
+        <!-- Secção 2: Basic Commands -->
+        <section class="main-section" id="Basic_Commands">
+            <header>Basic Commands</header>
+            <p>After initializing the repository, you need to add files to the staging area and then commit the changes.</p>
+            <p>To add a specific file, use:</p>
+            <details>
+                <summary>Command</summary>
+                <code>git add [filename]</code>
+            </details>
+            <p>To add all modified files at once, use:</p>
+            <details>
+                <summary>Command</summary>
+                <code>git add .</code>
+            </details>
+            <p>Committing is the act of permanently recording changes in the project history:</p>
+            <details>
+                <summary>Command</summary>
+                <code>git commit -m "Descriptive message"</code>
+            </details>
+            <p>You can frequently view the current status of your repository using:</p>
+            <details>
+                <summary>Command</summary>
+                <code>git status</code>
+            </details>
+        </section>
+
+        <!-- Secção 3: Working with Branches -->
+        <section class="main-section" id="Working_with_Branches">
+            <header>Working with Branches</header>
+            <p>Branching allows you to deviate from the main line of development and work on new features or fixes without affecting the main code.</p>
+            <p>To create a new branch and switch to it immediately:</p>
+            <details>
+                <summary>Command</summary>
+                <code>git checkout -b [branch-name]</code>
+            </details>
+            <p>To list all local branches:</p>
+            <details>
+                <summary>Command</summary>
+                <code>git branch</code>
+            </details>
+            <p>When you finish work on a branch and want to integrate the changes into `main` (or `master`), you use `merge`:</p>
+            <details>
+                <summary>Command</summary>
+                <code>git merge [branch-name]</code>
+            </details>
+            <ul>
+                <li>Item 4: Merging can cause conflicts that need manual resolution.</li>
+            </ul>
+        </section>
+
+        <!-- Secção 4: GitHub e Remotos -->
+        <section class="main-section" id="GitHub_and_Remotes">
+            <header>GitHub and Remotes</header>
+            <p>GitHub is a code hosting platform that allows collaboration. You need to link your local repository to a remote repository on GitHub.</p>
+            <p>Add a new remote using a URL:</p>
+            <details>
+                <summary>Command</summary>
+                <code>git remote add origin [repository_url]</code>
+            </details>
+            <p>Push your local changes to GitHub (main branch):</p>
+            <details>
+                <summary>Command</summary>
+                <code>git push origin main</code>
+            </details>
+            <p>Pull changes from the remote to the local machine:</p>
+            <details>
+                <summary>Command</summary>
+                <code>git pull origin main</code>
+            </details>
+        </section>
+
+        <!-- Secção 5: Pull Requests e Colaboração -->
+        <section class="main-section" id="Pull_Requests_and_Colaboration">
+            <header>Pull Requests and Collaboration</header>
+            <p>A Pull Request (PR) is the standard way to collaborate on GitHub. It is a request for the code from one branch to be reviewed and integrated into another branch.</p>
+            <p>Generally, it involves:</p>
+            <ul>
+                <li>Item 5: Creating a feature branch.</li>
+                <li>Item 6: Committing and pushing to GitHub.</li>
+                <li>Item 7: Opening a PR via the GitHub web interface.</li>
+            </ul>
+            <p>Code review is an essential part of the PR process, ensuring code quality.</p>
+        </section>
+
+         <!-- Secção 6: Gestão de Conflitos e Rebase -->
+        <section class="main-section" id="Conflict_Management_and_Rebase">
+            <header>Conflict Management and Rebase</header>
+            <p>Merge conflicts occur when two branches modify the same lines in the same file, and Git doesn't know which version to keep.</p>
+            <p>You need to open the conflicted file and manually resolve the sections marked with `<<<<<<<`, `=======`, and `>>>>>>>`.</p>
+            <p>After editing the file to the desired state, you add and commit:</p>
+            <details>
+                <summary>Command</summary>
+                <code>git add [conflicted_filename]</code>
+            </details>
+            <p>Rebase is an alternative to merge for integrating changes. It rewrites the project history by moving or combining a sequence of commits to a new base commit.</p>
+            <details>
+                <summary>Command</summary>
+                <code>git rebase main</code>
+            </details>
+            <ul>
+                <li>Rebase keeps the project history cleaner and more linear.</li>
+            </ul>
+        </section>
+
+        <!-- Secção 7: Ignorar Ficheiros e Configuração Global -->
+        <section class="main-section" id="Ignoring_Files_and_Global_Config">
+            <header>Ignoring Files and Global Config</header>
+            <p>Often, there are automatically generated files (logs, caches, `node_modules`) that shouldn't be tracked by Git. For this, a `.gitignore` file is created.</p>
+            <p>You can specify file patterns to ignore, one per line.</p>
+            <details>
+                <summary>Example</summary>
+                <code># Ignore temporary files&#10;*.log&#10;# Ignore dependency folder&#10;node_modules/</code>
+            </details>
+            <p>Git's global configuration defines your username and email for all your local repositories.</p>
+            <details>
+                <summary>Command</summary>
+                <code>git config --global user.name "Your Name"</code>
+            </details>
+            <p>You can check your current configuration with:</p>
+            <details>
+                <summary>Ver Comando: git config --list</summary>
+                <code>git config --list</code>
+            </details>
+            <ul>
+                <li>`.gitignore` must be committed to the repository.</li>
+                <li>The global configuration is stored in your home directory.</li>
+            </ul>
+        </section>
+
+    </main>
+</body>
+</html>
